@@ -10,7 +10,7 @@ export function Summary() {
 
     const summary = transactions.reduce((acc, transaction)=> {
         if (transaction.type === 'deposit') {
-            acc.deposit += transaction.amount;
+            acc.deposits += transaction.amount;
             acc.total += transaction.amount;
 
         } else {
@@ -20,7 +20,7 @@ export function Summary() {
         }
         return acc;
 
-    }, {deposit: 0, withdraws: 0, total: 0});
+    }, {deposits: 0, withdraws: 0, total: 0});
 
     return(
         <Container>
@@ -33,7 +33,7 @@ export function Summary() {
                     {new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(summary.deposit)}
+                    }).format(summary.deposits)}
                 </strong>
             </div>
             <div>
